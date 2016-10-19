@@ -1,0 +1,7 @@
+{
+  "aliasDefault": "./src",
+  "alias": {
+    "components": "src/components",
+    "views": "src/views"
+  }
+}

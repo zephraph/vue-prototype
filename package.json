@@ -1,0 +1,26 @@
+{
+  "name": "vue-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "vbuild",
+    "dev": "vbuild --dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "pug": "^2.0.0-beta6",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.3.1",
+    "vbuild": "^2.2.0"
+  },
+  "dependencies": {
+    "vue": "^2.0.1",
+    "vue-router": "^2.0.1",
+    "vuex": "^2.0.0",
+    "vuex-router-sync": "^2.1.1"
+  }
+}
