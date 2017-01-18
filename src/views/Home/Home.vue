@@ -1,11 +1,17 @@
 <template lang="pug">
-  .test
+  div
+    Spotlight
+    Label(text="Hello World")
 </template>
 
 <script>
+import Spotlight from 'components/Spotlight';
+import Label from 'components/Label';
+
 export default {
-  data () {
-    return {}
+  components: {
+    Spotlight,
+    Label
   }
 }
 </script>

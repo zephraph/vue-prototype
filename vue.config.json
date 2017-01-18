@@ -1,7 +1,5 @@
 {
-  "aliasDefault": "./src",
-  "alias": {
-    "components": "src/components",
-    "views": "src/views"
-  }
+  "resolveRoot": "src",
+  "template": "src/template.html",
+  "electron": true
 }
