@@ -1,5 +1,0 @@
-{
-  "resolveRoot": "src",
-  "template": "src/template.html",
-  "electron": true
-}

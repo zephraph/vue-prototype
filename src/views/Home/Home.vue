@@ -1,17 +1,16 @@
 <template lang="pug">
-  div
-    Spotlight
-    Label(text="Hello World")
+  Workspace
+    Node(title="hello world")
 </template>
 
 <script>
-import Spotlight from 'components/Spotlight';
-import Label from 'components/Label';
+import Workspace from 'components/Workspace';
+import Node from 'components/Node';
 
 export default {
   components: {
-    Spotlight,
-    Label
+    Workspace,
+    Node
   }
 }
 </script>

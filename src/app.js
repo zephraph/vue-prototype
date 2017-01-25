@@ -3,6 +3,8 @@ import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
 
+import 'styles/global.styl'
+
 // sync(store, router);
 const app = new Vue({
   router,
