@@ -27,10 +27,13 @@ export default {
 </script>
 
 <style lang="stylus">
+  @import '~styles/colors.styl'
+
   .Node rect
     stroke black
     stroke-width 2
-    fill white
+    fill white2
     rx 3
     ry 3
+
 </style>

@@ -1,16 +1,25 @@
 <template lang="pug">
-  Workspace
-    Node(title="hello world")
+  Dock
+    Workspace
+      Node(title="hello world")
+    SideBar(slot="right")
+      Menu-Section(title="Test Section")
 </template>
 
 <script>
 import Workspace from 'components/Workspace';
 import Node from 'components/Node';
+import Dock from 'components/Dock';
+import SideBar from 'components/SideBar';
+import MenuSection from 'components/Menu/Section';
 
 export default {
   components: {
     Workspace,
-    Node
+    Node,
+    Dock,
+    SideBar,
+    MenuSection
   }
 }
 </script>
