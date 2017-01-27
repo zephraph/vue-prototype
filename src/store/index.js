@@ -1,18 +1,15 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.use(Vuex)
+import workflow from 'store/modules/workflow';
 
-const state = {};
-
-const mutations = {};
-
-const actions = {};
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  state,
-  mutations,
-  actions
+  state: {},
+  modules: {
+    workflow
+  }
 });
 
 export default store;

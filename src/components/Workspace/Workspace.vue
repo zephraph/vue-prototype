@@ -1,7 +1,34 @@
 <template lang="pug">
   svg.Workspace
-    slot
+    g.NodeLayer
+      Node(
+        v-for="node in nodes",
+        :key="node.id",
+        :model="node",
+        @selected="selectNode(node.id)"
+      )
 </template>
+
+<script>
+import { mapGetters, mapActions, mapState } from 'vuex';
+import Node from 'components/Node';
+
+export default {
+  computed: {
+    ...mapGetters('workflow', {
+      nodes: 'listNodes'
+    })
+  },
+  methods: {
+    ...mapActions('workflow', [
+      'selectNode'
+    ])
+  },
+  components: {
+    Node
+  }
+}
+</script>
 
 <style lang="stylus">
   .Workspace

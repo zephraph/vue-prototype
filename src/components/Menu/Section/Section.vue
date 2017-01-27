@@ -2,6 +2,7 @@
   .Menu-Section
     Menu-TitleBar(:title="title")
       i(v-if="collapsible" slot="icon")
+    slot
 </template>
 
 <script>
@@ -24,4 +25,5 @@ export default {
 <style lang="stylus">
   .Menu-Section
     display flex
+    flex-direction column
 </style>

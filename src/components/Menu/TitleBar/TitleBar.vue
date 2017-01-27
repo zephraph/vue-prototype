@@ -14,10 +14,11 @@ export default {
 
 <style lang="stylus" scoped>
   @import '~styles/colors.styl'
+  @import '../menu.styl';
 
   .Menu-TitleBar
     display flex
-    height 30px
+    height row-height
     align-items center
     width 100%
     border-bottom 2px solid light-border

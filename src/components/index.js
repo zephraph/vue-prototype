@@ -1,6 +1,4 @@
-function requireAll(requireContext) {
-  return requireContext.keys().map(requireContext);
-}
+import { requireAll } from 'utils';
 
 export const componentList = requireAll(require.context('./', true, /\.\/[A-Za-z]+\/index\.js$/));
 

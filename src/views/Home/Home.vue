@@ -1,25 +1,30 @@
 <template lang="pug">
   Dock
     Workspace
-      Node(title="hello world")
     SideBar(slot="right")
-      Menu-Section(title="Test Section")
+      Menu-Section(title="Create Node")
+        Menu-Field(@submit="createNode")
 </template>
 
 <script>
 import Workspace from 'components/Workspace';
-import Node from 'components/Node';
 import Dock from 'components/Dock';
 import SideBar from 'components/SideBar';
 import MenuSection from 'components/Menu/Section';
+import MenuField from 'components/Menu/Field';
 
 export default {
+  methods: {
+    createNode(name) {
+      this.$store.dispatch('workflow/createNode', { name });
+    }
+  },
   components: {
     Workspace,
-    Node,
     Dock,
     SideBar,
-    MenuSection
+    MenuSection,
+    MenuField
   }
 }
 </script>
