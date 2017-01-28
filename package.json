@@ -21,7 +21,7 @@
     "kefir": "^3.7.1",
     "ramda": "^0.23.0",
     "vue": "^2.0.1",
-    "vue-loader": "^10.0.3",
+    "vue-loader": "^10.1.2",
     "vue-router": "^2.0.1",
     "vue-template-compiler": "^2.1.10",
     "vuex": "^2.0.0",

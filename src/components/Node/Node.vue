@@ -6,18 +6,32 @@
 
 <script>
 import draggable from 'mixins/draggable';
+import { mapActions } from 'vuex';
 
 export default {
   mixins: [draggable],
-  data: () => ({
-    x: 0,
-    y: 0,
-    width: 100,
-    height: 100
-  }),
+  data() {
+    return {
+      x: this.model.x,
+      y: this.model.y,
+      width: 100,
+      height: 100
+    }
+  },
   methods: {
     selected() {
       this.$emit('selected');
+    },
+    incrementPosition(x, y) {
+      this.x += x;
+      this.y += y;
+    },
+    finalizePosition() {
+      this.$store.dispatch('workflow/node/setPosition', {
+        id: this.model.id,
+        x: this.x,
+        y: this.y
+      });
     }
   },
   computed: {

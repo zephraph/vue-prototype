@@ -15,14 +15,14 @@ import Node from 'components/Node';
 
 export default {
   computed: {
-    ...mapGetters('workflow', {
-      nodes: 'listNodes'
+    ...mapGetters('workflow/node', {
+      nodes: 'listAll'
     })
   },
   methods: {
-    ...mapActions('workflow', [
-      'selectNode'
-    ])
+    ...mapActions('workflow/node', {
+      selectNode: 'select'
+    })
   },
   components: {
     Node

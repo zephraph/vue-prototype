@@ -10,13 +10,17 @@ const drag$ = model =>
   .map(e => ({ x: e.clientX, y: e.clientY }))
   .diff((p, n) => ({ x: n.x - p.x, y: n.y - p.y }))
   .onValue(
-    ({x, y}) => {
-      model.x += x;
-      model.y += y;
-    });
+    ({x, y}) => model.incrementPosition(x, y)
+  ).onEnd(model.finalizePosition);
 
 export default {
   mounted() {
     makeDraggable(this);
+  },
+  methods: {
+    incrementPosition() {
+      console.error(`<${this.$vnode.componentOptions.tag}/> must implement incrementPosition(x, y)`);
+    },
+    finalizePosition() {}
   }
 }

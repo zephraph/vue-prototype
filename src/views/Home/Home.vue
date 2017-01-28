@@ -16,7 +16,7 @@ import MenuField from 'components/Menu/Field';
 export default {
   methods: {
     createNode(name) {
-      this.$store.dispatch('workflow/createNode', { name });
+      this.$store.dispatch('workflow/node/create', { name });
     }
   },
   components: {
