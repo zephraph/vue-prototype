@@ -11,28 +11,30 @@ const DESELECT_ALL = 'DESELECT_ALL';
 const SET_NAME = 'SET_NAME';
 const SET_POSITION = 'SET_POSITION';
 
-const actOnNode = (nodes, id, callback) =>
+const indexEqualsNegativeOne = i => i === -1;
+
+export const actOnNode = (nodes, id, callback) =>
   pipe(
     findIndex(propEq('id', id)),
-    unless(isNil, callback)
+    unless(indexEqualsNegativeOne, callback)
   )(nodes);
 
-const updateNode = (nodes, id, properties) =>
+export const updateNode = (nodes, id, properties) =>
   actOnNode(nodes, id, index => {
     nodes[index] = { ...nodes[index], ...properties };
   });
 
-const removeNode = (nodes, id) =>
+export const removeNode = (nodes, id) =>
   actOnNode(nodes, id, index => {
     nodes.splice(index, 1);
   });
 
-const bringNodeToFront = (nodes, id) =>
+export const bringNodeToFront = (nodes, id) =>
   actOnNode(nodes, id, index => {
-    nodes.unshift(nodes.splice(index, 1));
+    nodes.unshift(nodes.splice(index, 1)[0]);
   });
 
-const forAllNodes = (nodes, callback) => {
+export const forAllNodes = (nodes, callback) => {
   for (let i = 0; i < nodes.length; ++i) {
     callback(i);
   }

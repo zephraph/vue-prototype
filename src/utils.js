@@ -1,5 +1,13 @@
-export const requireAll = requireContext =>
-  requireContext.keys().map(requireContext);
+export const requireAll = (requireContext, { beforeRequire, afterRequire } = {}) =>
+  requireContext.keys().map(context => {
+    if (beforeRequire)
+      beforeRequire(context);
+
+    requireContext(context);
+
+    if (afterRequire)
+      afterRequire(context)
+  });
 
 const s4 = () =>
   Math.floor((1 + Math.random()) * 0x10000)
