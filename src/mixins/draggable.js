@@ -1,7 +1,7 @@
 import K from 'kefir';
 
 const makeDraggable = model =>
-  K.fromEvents(model.$el, 'mousedown')
+  K.fromEvents(model.$el.querySelector('[draggable]') || model.$el, 'mousedown')
   .observe(() => drag$(model));
 
 const drag$ = model =>

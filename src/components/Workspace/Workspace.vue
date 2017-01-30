@@ -1,11 +1,11 @@
 <template lang="pug">
-  svg.Workspace
+  svg.Workspace(@click="deselectAll")
     g.NodeLayer
       Node(
         v-for="node in nodes",
         :key="node.id",
         :model="node",
-        @selected="selectNode(node.id)"
+        @selected="select(node.id)"
       )
 </template>
 
@@ -20,9 +20,10 @@ export default {
     })
   },
   methods: {
-    ...mapActions('workflow/node', {
-      selectNode: 'select'
-    })
+    ...mapActions('workflow/node', [
+      'select',
+      'deselectAll'
+    ])
   },
   components: {
     Node

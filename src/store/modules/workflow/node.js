@@ -2,14 +2,14 @@ import { unless, isNil, findIndex, propEq, pipe } from 'ramda';
 import { uuid } from 'utils';
 
 // Mutations
-const CREATE = 'CREATE';
-const DELETE = 'DELETE';
-const SELECT = 'SELECT';
-const SELECT_ALL = 'SELECT_ALL';
-const DESELECT = 'DESELECT';
-const DESELECT_ALL = 'DESELECT_ALL';
-const SET_NAME = 'SET_NAME';
-const SET_POSITION = 'SET_POSITION';
+export const CREATE = 'CREATE';
+export const DELETE = 'DELETE';
+export const SELECT = 'SELECT';
+export const SELECT_ALL = 'SELECT_ALL';
+export const DESELECT = 'DESELECT';
+export const DESELECT_ALL = 'DESELECT_ALL';
+export const SET_NAME = 'SET_NAME';
+export const SET_POSITION = 'SET_POSITION';
 
 const indexEqualsNegativeOne = i => i === -1;
 
@@ -31,7 +31,7 @@ export const removeNode = (nodes, id) =>
 
 export const bringNodeToFront = (nodes, id) =>
   actOnNode(nodes, id, index => {
-    nodes.unshift(nodes.splice(index, 1)[0]);
+    nodes.push(nodes.splice(index, 1)[0]);
   });
 
 export const forAllNodes = (nodes, callback) => {
@@ -64,9 +64,10 @@ export default {
       });
     },
     delete: ({ commit }, id) => commit(DELETE, id),
-    select({ dispatch, commit }, id) {
+    select({ dispatch, commit, state }, id) {
       dispatch('deselectAll');
       commit(SELECT, id);
+      bringNodeToFront(state, id);
     },
     selectAll: ({ commit }) => commit(SELECT_ALL),
     addToSelection: ({ commit }, id) => commit(SELECT, id),

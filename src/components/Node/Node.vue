@@ -1,12 +1,15 @@
 <template lang="pug">
-  g.Node(:transform="translate" @mousedown="selected")
-    rect(:width="width", :class="{ selected: model.selected }", :height="height" x="0" y="0")
-    text(v-if="model.name", :x="width / 2" y="15" text-anchor="middle") {{ model.name }}
+  g.Node(:transform="translate" @mousedown="select")
+    rect.container(:width="width", :class="{ selected: model.selected }", :height="height" x="0" y="0")
+    g.title(draggable)
+      rect.bg(:width="width" height="20")
+      text(v-if="model.name", x="5" y="15") {{ model.name }}
+    circle.close(:cx="width - 10" cy="10" r="6.5" @click="close(model.id)")
 </template>
 
 <script>
 import draggable from 'mixins/draggable';
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   mixins: [draggable],
@@ -19,7 +22,7 @@ export default {
     }
   },
   methods: {
-    selected() {
+    select() {
       this.$emit('selected');
     },
     incrementPosition(x, y) {
@@ -32,7 +35,10 @@ export default {
         x: this.x,
         y: this.y
       });
-    }
+    },
+    ...mapActions('workflow/node', {
+      close: 'delete'
+    })
   },
   computed: {
     translate() {
@@ -48,12 +54,23 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/colors.styl'
 
-  rect
+  .container
     stroke black
     stroke-width 2
     fill white2
-    rx 3
-    ry 3
+
+  .title
+    text
+      fill gray1
+      stroke none
+      font-family Rubik
+      font-weight 400
+
+    .bg
+      fill black
+
+  .close
+    fill red
 
   .selected
     stroke primary
