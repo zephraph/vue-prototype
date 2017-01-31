@@ -5,17 +5,19 @@
   "main": "index.js",
   "scripts": {
     "build": "vbuild",
-    "dev": "vbuild --dev"
+    "dev": "vbuild --dev",
+    "test:watch": "jest --watch",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-jest": "^18.0.0",
+    "jest": "^18.1.0",
     "pug": "^2.0.0-beta8",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
-    "testdouble": "^1.11.1",
-    "qunitjs": "^2.1.1",
     "vbuild": "^5.2.0"
   },
   "dependencies": {
@@ -27,5 +29,11 @@
     "vue-template-compiler": "^2.1.10",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^4.1.1"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "./src"
+    ]
   }
 }
