@@ -1,5 +1,5 @@
 <template lang="pug">
-  .Dock
+  .Layout
     header
       slot(name="header")
     .center
@@ -16,7 +16,7 @@
 <style lang="stylus" scoped>
   @import '~styles/colors.styl'
 
-  .Dock
+  .Layout
     display flex
     flex-direction column
     height 100%

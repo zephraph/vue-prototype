@@ -1,5 +1,6 @@
 <template lang="pug">
   .Menu-Field
+    span.label(v-if="label") {{ label }}
     input(@keyup.enter="submit" v-model="value")
 </template>
 
@@ -10,10 +11,15 @@ export default {
   }),
   methods: {
     submit() {
-      this.$emit('submit', this.value);
+      if (this.action)
+        this.action(this.value);
       this.value = '';
     }
-  }
+  },
+  props: [
+    'label',
+    'action'
+  ]
 }
 </script>
 
@@ -23,9 +29,16 @@ export default {
 
   .Menu-Field
     height row-height
+    display flex
+    align-items center
 
-    input
-      border none
-      width 100%
-      height row-height
+  .label
+    font-family Rubik
+    color gray2
+    margin 0 8px
+
+  input
+    border none
+    width 100%
+    height row-height
 </style>

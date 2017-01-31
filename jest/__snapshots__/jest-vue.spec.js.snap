@@ -1,0 +1,36 @@
+exports[`compileScript should match snapshot 1`] = `
+"
+    export default {
+      name: \'HelloWorld\'
+    };
+  "
+`;
+
+exports[`compileTemplate should match pug snapshot 1`] = `"exports.default[\'template\']=\`<test></test>\`"`;
+
+exports[`compileTemplate should match snapshot 1`] = `
+"exports.default[\'template\']=\`
+      test
+    \`"
+`;
+
+exports[`scriptRegex snapshot should match script body 1`] = `
+"
+    export default {
+      name: \'HelloWorld\'
+    };
+  "
+`;
+
+exports[`templateRegex snapshot should match template body 1`] = `
+"
+      test
+    "
+`;
+
+exports[`test normalizeWhitespace should equalize the tab depth 1`] = `
+"
+firstLevel
+  secondLevel
+"
+`;

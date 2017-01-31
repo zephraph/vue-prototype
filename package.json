@@ -15,6 +15,7 @@
   "devDependencies": {
     "babel-jest": "^18.0.0",
     "jest": "^18.1.0",
+    "js-beautify": "^1.6.8",
     "pug": "^2.0.0-beta8",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
@@ -34,6 +35,18 @@
     "moduleDirectories": [
       "node_modules",
       "./src"
+    ],
+    "moduleNameMapper": {
+      "^vue$": "vue/dist/vue.common.js",
+      "src/([^\\.]*)$": "<rootDir>/src/$1.vue",
+      "(.*)/(.*)$": "$1/$2.vue"
+    },
+    "transform": {
+      ".*?\\.vue$": "<rootDir>/jest/jest-vue.js",
+      ".*": "babel-jest"
+    },
+    "snapshotSerializers": [
+      "<rootDir>/jest/htmlSnapshotBeautifier.js"
     ]
   }
 }

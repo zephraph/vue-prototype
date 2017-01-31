@@ -1,19 +1,18 @@
 <template lang="pug">
-  Dock
+  Layout
     Workspace
     SideBar(slot="right")
-      Menu-Section(title="Create Node")
-        Menu-Field(@submit="createNode")
+      CreateNodeMenu
 </template>
 
 <script>
 import Workspace from 'components/Workspace';
-import Dock from 'components/Dock';
+import Layout from 'components/Layout';
 import SideBar from 'components/SideBar';
-import MenuSection from 'components/Menu/Section';
-import MenuField from 'components/Menu/Field';
+import CreateNodeMenu from 'components/Menus/CreateNodeMenu';
 
 export default {
+  name: 'Home',
   methods: {
     createNode(name) {
       this.$store.dispatch('workflow/node/create', { name });
@@ -21,10 +20,9 @@ export default {
   },
   components: {
     Workspace,
-    Dock,
+    Layout,
     SideBar,
-    MenuSection,
-    MenuField
+    CreateNodeMenu
   }
 }
 </script>
