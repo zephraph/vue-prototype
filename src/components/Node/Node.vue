@@ -5,14 +5,20 @@
       rect.bg(:width="width" height="20")
       text(v-if="model.name", x="5" y="15") {{ model.name }}
     circle.close(:cx="width - 10" cy="10" r="6.5" @click="close(model.id)")
+    Socket(label="input", :width="width")
+    Socket(label="input1" offset="60", :width="width")
+    Socket(label="output" type="output", :width="width")
 </template>
 
 <script>
 import draggable from 'mixins/draggable';
+import translatable from 'mixins/translatable';
 import { mapActions, mapGetters } from 'vuex';
 
+import Socket from './Socket.vue';
+
 export default {
-  mixins: [draggable],
+  mixins: [draggable, translatable],
   data() {
     return {
       x: this.model.x,
@@ -40,10 +46,8 @@ export default {
       close: 'delete'
     })
   },
-  computed: {
-    translate() {
-      return `translate(${this.x},${this.y})`;
-    }
+  components: {
+    Socket
   },
   props: [
     'model'

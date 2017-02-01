@@ -1,0 +1,5 @@
+exports[`test Should create an empty menu with the given title 1`] = `
+<div server-rendered="true" class="Menu-Section">
+    <div class="Menu-TitleBar"><span>test</span></div>
+</div>
+`;

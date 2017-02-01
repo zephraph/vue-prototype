@@ -1,10 +1,10 @@
 import { createRenderer } from 'vue-server-renderer';
 import Vue from 'vue';
 
-export const async render = (component) => {
+export const render = async (component) => {
   const renderer = createRenderer();
   return new Promise((resolve, reject) => {
-    renderer.renderToString(component, (err, str) => {
+    renderer.renderToString(new Vue(component), (err, str) => {
       if (err) reject(err);
       resolve(str);
     });

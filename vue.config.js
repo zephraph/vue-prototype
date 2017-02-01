@@ -6,7 +6,7 @@ export default {
   resolve: true,
   babel(opts) {
     return {
-      presets: [["es2015", {"modules": false}], "stage-2"],
+      presets: [["latest", {es2015: {modules: false}}], "stage-2"],
       ...opts
     }
   },

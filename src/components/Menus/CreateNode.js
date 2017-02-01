@@ -1,5 +1,5 @@
 export default {
-  name: 'Create Node',
+  title: 'Create Node',
   fields: [
     {
       type: 'form',

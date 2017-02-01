@@ -1,6 +1,6 @@
 <template lang="pug">
   .Menu-TitleBar
-    span {{ title }}
+    span(v-if="title") {{ title }}
     slot(name="icon")
 </template>
 

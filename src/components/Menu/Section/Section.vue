@@ -1,6 +1,6 @@
 <template lang="pug">
   .Menu-Section
-    Menu-TitleBar(:title="title")
+    Menu-TitleBar(v-if="title", :title="title")
       i(v-if="collapsible" slot="icon")
     slot
 </template>
