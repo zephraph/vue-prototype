@@ -11,9 +11,7 @@ test('Should create an empty menu with the given title', async () => {
   const props = makeProps({
     title: 'test'
   });
-  const result = await render({
-    render: h => <Menu try="this" {...props}/>
-  });
+  const result = await render(h => <Menu try="this" {...props}/>);
 
   expect(result).toMatchSnapshot();
 });

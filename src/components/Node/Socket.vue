@@ -27,12 +27,18 @@ export default {
       return this.type === 'output';
     }
   },
-  props: [
-    'label',
-    'type', // input | output
-    'width',
-    'offset'
-  ]
+  props: {
+    label: String,
+    type: {
+      default: 'input',
+      validator: v => v === 'input' || v === 'output'
+    },
+    width: {
+      type: Number,
+      required: true
+    },
+    offset: Number
+  }
 }
 </script>
 

@@ -1,0 +1,9 @@
+exports[`test Socket component should render in correct place for input 1`] = `
+<g transform="translate(0,40)" server-rendered="true" class="Socket">
+    <circle r="5"></circle><text x="8" y="4" text-anchor="start"></text></g>
+`;
+
+exports[`test Socket component should render in correct place for output 1`] = `
+<g transform="translate(10,40)" server-rendered="true" class="Socket">
+    <circle r="5"></circle><text x="-8" y="4" text-anchor="end"></text></g>
+`;
