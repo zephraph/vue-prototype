@@ -1,5 +1,7 @@
 # Vue-Prototype
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zephraph/vue-prototype.svg)](https://greenkeeper.io/)
+
 This is an active development experiment, use at your own risk.
 
 ## Setup
